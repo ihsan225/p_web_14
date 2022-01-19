@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Pendaftaran Mahasiswa</title>
+    <style type="text/css">
+        body{
+            background-color: #e8eff8;
+        }
+        .wrapper{
+            background-color: #93c7ba;
+            width:90%;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow:2px 2px 8px #8f9190;
+            
+        }
+        .header{
+            background-color: #2c5449;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            margin: auto;
+            font-family: 'Courier New', Courier, monospace;
+            color: #fa8c24 ;
+        }
+        .body{
+            width: 100%;
+            margin: auto;
+        }
+        .tb{
+            margin: auto;
+            font-size: 18px;
+        }
+        .foot{
+            width: 100%;
+            background-color: #7da89d;
+            border-radius: 0 0 10px 10px;
+            margin: auto;
+        }
+        .container{
+            width: 90%;
+            margin: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            text-align: leftt;
+            font-weight: bold;
+        }
+        .end{
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            border: 1px solid #7da89d;
+            border-radius: 5px;
+            height: 25px;
+        }
+        .mark{
+            width: 99%;
+            margin-top: 4px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function tampil(){
+            var nama=document.getElementById("nama");
+            var tampil_nama=document.getElementById("out_nama");
+            var prodi=document.getElementById("form1").select.value;
+            var tampil_prodi=document.getElementById("out_prodi");
+            var checkbox = document.getElementsByName("hobi");
+            var hobi = "";
+            var rd1=document.getElementById("rd1");
+            var rd2=document.getElementById("rd2");
+
+            tampil_nama.innerHTML="Nama :" + nama.value;
+
+            if(rd1.checked==true){
+                document.getElementById("out_gender").innerHTML="Jenis Kelamin : " + rd1.value;
+            }
+            else if(rd2.checked==true){
+                document.getElementById("out_gender").innerHTML="Jenis Kelamin : " + rd2.value;
+            }
+            else{
+                document.getElementById("out_gender").innerHTML="Pilih Jenis Kelamin"
+            };
+
+            if(prodi=="ti"){
+                tampil_prodi.innerHTML="Prodi : Teknik Informatika";
+            }
+            else{
+                tampil_prodi.innerHTML="Prodi : Sistem Informasi";
+            };
+
+            for(var i = 0; i < checkbox.length; i++){
+                if(checkbox[i].checked){
+                    hobi = hobi + checkbox[i].value +", ";
+                }
+            }
+            document.getElementById("out_hobi").innerText ="Hobi :" + hobi.replace(/,\s*$/, "");
+
+
+        }
+    </script>
+</head>
+<body id=body>
+    <div class="wrapper">
+        <div class="header">
+            <h1 align="center">Form Pendaftaran Mahasiswa</h1>
+        </div>
+        <div class="body">
+            <table class="tb" border="0px">
+                <tr>
+                    <td>Nama</td><td>:</td><td><input type=text id="nama"></td>
+                </tr>
+                <tr>
+                    <td>Jenis Kelamin</td><td>:</td>
+                    <td>
+                        <input id="rd1" type="radio" name="gender" value="Pria">Pria
+                        <input id="rd2" type="radio" name="gender" value="wanita">Wanita
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prodi</td><td>:</td>
+                    <td><form id="form1" name="form1" onsubmit="return false">
+                        <select id="select" name="select">
+                            <option value="ti">Teknik Informatika</option>
+                            <option value="si">Sistem Informasi</option>
+                        </select>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hobi</td><td>:</td>
+                    <td>
+                        <input type="checkbox" name="hobi" value="coding">Coding
+                        <input type="checkbox" name="hobi" value="jalan-jalan">Jalan-Jalan
+                        <input type="checkbox" name="hobi" value="makan">Makan
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Kirim" onclick="tampil()"></td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <div class="foot">
+            <div class="container">
+                <p id="out_nama"></p>
+                <p id="out_gender"></p>
+                <p id="out_prodi"></p>
+                <p id="out_hobi"></p>
+                <p id="out_kelamin"></p>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <marquee class="mark">Ihsan Setiyadi &emsp; - &emsp; 2110024 &emsp; - &emsp; Tugas Pertemuan 15 &emsp; - &emsp; Pemrograman Web</marquee>
+    </div>
+
+</body>
+
+</html>
